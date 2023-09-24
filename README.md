@@ -18,13 +18,14 @@ The final architecture for my discriminator is as follows:
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Discriminator_Code.png?raw=true">
 </p>
 
+The final layer of flattening and then predicting a real or fake classification is to use the squared error loss (instead of using Sigmoid for a BCE loss). I used the Adam optimizer for the discriminator with a learning rate of 0.0002 and betas=(0.5, 0.999).
+
 The final architecture for my generator is as follows:
 <p align="center">
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Generator_Code.png?raw=true">
 </p>
 
-I used the Adam optimizer for both the discriminator and generator. I used least mean squared error for the loss function (Pytorch's MSELoss).
-
+Similarly, I used the Adam optimizer with a learning rate of 0.0002 and betas=(0.5, 0.999) for the generator. The loss for the generator is computed by correct classifications of fake images from the discriminator.
 
 ## Difficulties & Model Improvements
 GANs are typically tricky to train, there were a few difficulties I encoutered before I found reasonable results.
