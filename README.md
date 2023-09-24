@@ -11,16 +11,25 @@ Link to Dataset: https://www.kaggle.com/datasets/bryanb/abstract-art-gallery
 ## Methodology & Neural Net Architecture
 GANs train two neural networks simultaneously, a generator network which takes as input a noise vector and creates an image, and a discriminator network which takes as input an image and determines if it is a fake image created by the generator or a real image from original dataset. For each batch of data, the discriminator analyzes both fake and real abstract art images and updates its weights from the loss via misclassification, and the generator updates its weights based on the loss from fake images the discriminator correctly classified as fake. This is similar to the minimax algorithm in classical AI where two players are paired off against each other.
 
+My chosen generator and discriminator architectures were inspired from this InfoGAN paper which explores different architectures for a variety of different datasets: https://arxiv.org/pdf/1606.03657.pdf.
+
+The final architecture for my discriminator is as follows:
 <p align="center">
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Discriminator_Code.png?raw=true">
 </p>
+
+The final architecture for my generator is as follows:
 <p align="center">
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Generator_Code.png?raw=true">
 </p>
 
+I used the Adam optimizer for both the discriminator and generator. I used least mean squared error for the loss function (Pytorch's MSELoss).
+
 
 ## Difficulties & Model Improvements
 GANs are typically tricky to train, there were a few difficulties I encoutered before I found reasonable results.
+
+Paper desribing using least squared loss for optimizting GANs isntead of BCE: https://arxiv.org/pdf/1611.04076.pdf
 
 ## Results
 
