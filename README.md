@@ -4,7 +4,7 @@ Link to Code (Jupyter Notebook):
 
 ## Introduction & Data
 
-This project takes image classification using Convolutional Neural Networks (CNNs) explored in previous projects and expands upon that by creating a generative model - more specifically a Generative Adversarial Network (GAN) to create images. I found a dataset on Kaggle which webscraped around 3,000 abstract art images from WikiArt (https://www.wikiart.org/). 
+This project takes image classification using Convolutional Neural Networks (CNNs) explored in previous projects and expands upon that by creating a generative model - more specifically a Generative Adversarial Network (GAN) to create images. I found a dataset on Kaggle which webscraped around 3,000 abstract art images from WikiArt ([https://www.wikiart.org/](https://www.wikiart.org/). 
 
 Link to Dataset: [https://www.kaggle.com/datasets/bryanb/abstract-art-gallery]([https://www.kaggle.com/datasets/bryanb/abstract-art-gallery])
 
@@ -17,7 +17,7 @@ Here are some examples from this dataset:
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Input_Examples_2.png?raw=true">
 </p>
 
-My chosen generator and discriminator architectures were inspired from this InfoGAN paper which explores different architectures for a variety of different datasets: https://arxiv.org/pdf/1606.03657.pdf (see pages 12 and 13).
+My chosen generator and discriminator architectures were inspired from this InfoGAN paper which explores different architectures for a variety of different datasets: [https://arxiv.org/pdf/1606.03657.pdf](https://arxiv.org/pdf/1606.03657.pdf) (see pages 12 and 13).
 
 The final architecture for my discriminator is as follows:
 <p align="center">
@@ -43,7 +43,7 @@ The first issue I encountered was with my chosen architecture. I used some linea
 </p>
 
 
-Paper desribing using least squared loss for optimizting GANs isntead of BCE: https://arxiv.org/pdf/1611.04076.pdf
+Paper desribing using least squared loss for optimizting GANs isntead of BCE: [https://arxiv.org/pdf/1611.04076.pdf](https://arxiv.org/pdf/1611.04076.pdf)
 
 ## Results
 
