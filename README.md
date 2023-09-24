@@ -50,8 +50,16 @@ My next issue is with the loss function. I originally used Pytorch's binary cros
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/UpdatedArchitecture_BSE_500_Loss.png?raw=true">
 </p>
 
-The reults look reasonable, however there are a significant number of similar images. One of the issues with GANs is the generator can learn a template which reliably trick the discriminator and the generator can get stuck generating the same images over and over again. This is not desirable, a good generator should create a variety of images. I looked into this issue and discovered changing the loss function might fix this issue from the following paper: [https://arxiv.org/pdf/1611.04076.pdf](https://arxiv.org/pdf/1611.04076.pdf)
+The reults look reasonable, however there are a significant number of similar images. One of the issues with GANs is the generator can learn a template which reliably trick the discriminator and the generator can get stuck generating the same images over and over again. This is not desirable, a good generator should create a variety of images. I looked into this issue and discovered changing the loss function might fix this issue from the following paper: [https://arxiv.org/pdf/1611.04076.pdf](https://arxiv.org/pdf/1611.04076.pdf).
 
 ## Results
 
-## Future Works & Improvements
+After iterating on my network architecture and changing my loss function, my generator is able to create images like the following given an input vector of random noise:
+<p align="center">
+  <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Final_LSGAN_500_Gen_1.png?raw=true">
+</p>
+
+The plot of losses over epochs looks more reasonable too, instead of the generator having an increasing loss while the discriminator continually gets better, there seems more of a tradeoff between the generator's and discriminator's loss which is expected.
+<p align="center">
+  <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/MSE_Loss.png?raw=true">
+</p>
