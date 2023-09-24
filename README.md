@@ -38,20 +38,16 @@ GANs are typically tricky to train, there were a few difficulties I encoutered b
 
 The first issue I encountered was with my chosen architecture. I used some linear layers before convolutional layers for both the discriminator and generator which made my results significantly worse. My generator's loss was continually increasing over epochs, and the outputs from the generator did not look like my input images. Here is the plot of my losses and the output after 300 epochs:
 <p align="center">
-  <div style="margin-right: 20px;">
-    <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Linear_BCE_300_Loss.png?raw=true">
-  </div>
-  <div style="margin-left: 20px;">
-    <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Linear_BCE_300.png?raw=true">
-  </div>
+    <img style="margin-right: 15px;" width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Linear_BCE_300_Loss.png?raw=true">
+    <img style="margin-left: 15px;" width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Linear_BCE_300.png?raw=true">
 </p>
 
 I iterated on my discriminator and generator architecture until I eventually found the architecture mentioned in the previous section which provided decent results. 
 
 My next issue is with the loss function. I originally used Pytorch's binary cross entropy error to generate a loss. The outputs from using this loss function were:
 <p align="center">
-  <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/UpdatedArchitecture_BCE_500.png?raw=true">
-  <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/UpdatedArchitecture_BSE_500_Loss.png?raw=true">
+  <img style="margin-right: 15px;" width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/UpdatedArchitecture_BCE_500.png?raw=true">
+  <img style="margin-left: 15px;" width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/UpdatedArchitecture_BSE_500_Loss.png?raw=true">
 </p>
 
 The results look reasonable, however there are a significant number of similar images. One of the issues with GANs is the generator can learn a template which reliably trick the discriminator and the generator can get stuck generating the same images over and over again. This is not desirable, a good generator should create a variety of images. I investigated this issue and discovered that changing the loss function resolved this problem. I implemented mean squared loss instead of binary cross entropy loss based on the results from this paper: [https://arxiv.org/pdf/1611.04076.pdf](https://arxiv.org/pdf/1611.04076.pdf).
@@ -60,7 +56,8 @@ The results look reasonable, however there are a significant number of similar i
 
 After iterating on my network architecture and changing my loss function, my generator is able to create images like the following given an input vector of random noise:
 <p align="center">
-  <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Final_LSGAN_500_Gen_1.png?raw=true">
+  <img style="margin-right: 15px;" width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Final_LSGAN_500_Gen_1.png?raw=true">
+  <img style="margin-left: 15px;" width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Final_LSGAN_500_Gen_2.png?raw=true">
 </p>
 
 The plot of losses over epochs looks more reasonable as well. Rather than the generator experiencing increasing loss over time, the generator's loss seems to be stable and closer to the discriminator's loss.
