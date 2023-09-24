@@ -11,10 +11,10 @@ Link to Dataset: [https://www.kaggle.com/datasets/bryanb/abstract-art-gallery/](
 ## Methodology & Neural Net Architecture
 GANs train two neural networks simultaneously, a generator network which takes as input a noise vector and creates an image, and a discriminator network which takes as input an image and determines if it is a fake image created by the generator or a real image from original dataset. For each batch of data, the discriminator analyzes both fake and real abstract art images and updates its weights from the loss via misclassification, and the generator updates its weights based on the loss from fake images the discriminator correctly classified as fake. This is similar to the minimax algorithm in classical AI where two players are paired off against each other.
 
-Here are some examples from this dataset:
+Here are some examples from this dataset (these are the types of images the generator is trying to create):
 <p align="center">
-  <img width="500" height="350" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Input_Examples_1.png?raw=true">
-  <img width="500" height="350" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Input_Examples_2.png?raw=true">
+  <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Input_Examples_1.png?raw=true">
+  <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Input_Examples_2.png?raw=true">
 </p>
 
 My chosen generator and discriminator architectures were inspired from this InfoGAN paper which explores different architectures for a variety of different datasets: [https://arxiv.org/pdf/1606.03657.pdf](https://arxiv.org/pdf/1606.03657.pdf) (see pages 12 and 13).
@@ -31,7 +31,7 @@ The final architecture for my generator is as follows:
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Generator_Code.png?raw=true">
 </p>
 
-Similarly, I used the Adam optimizer with a learning rate of 0.0002 and betas=(0.5, 0.999) for the generator. The loss for the generator is computed by correct classifications of fake images from the discriminator.
+Similarly, I used the Adam optimizer with a learning rate of 0.0002 and betas=(0.5, 0.999) for the generator.
 
 ## Difficulties & Model Improvements
 GANs are typically tricky to train, there were a few difficulties I encoutered before I found reasonable results.
@@ -42,6 +42,13 @@ The first issue I encountered was with my chosen architecture. I used some linea
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Linear_BCE_300.png?raw=true">
 </p>
 
+I iterated on my discrminator and generator architecture until I eventually found the architeture mentioned in the previous section which provided decent results. 
+
+My next issue is with the loss function. I oringally used Pytorch's binary cross entropy error to generate a loss. The outputs from using this loss function were:
+<p align="center">
+  <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/UpdatedArchitecture_BCE_500.png?raw=true">
+  <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/UpdatedArchitecture_BSE_500_Loss.png?raw=true">
+</p>
 
 Paper desribing using least squared loss for optimizting GANs isntead of BCE: [https://arxiv.org/pdf/1611.04076.pdf](https://arxiv.org/pdf/1611.04076.pdf)
 
