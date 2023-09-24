@@ -42,15 +42,15 @@ The first issue I encountered was with my chosen architecture. I used some linea
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Linear_BCE_300.png?raw=true">
 </p>
 
-I iterated on my discrminator and generator architecture until I eventually found the architeture mentioned in the previous section which provided decent results. 
+I iterated on my discrminator and generator architecture until I eventually found the architecture mentioned in the previous section which provided decent results. 
 
-My next issue is with the loss function. I oringally used Pytorch's binary cross entropy error to generate a loss. The outputs from using this loss function were:
+My next issue is with the loss function. I originally used Pytorch's binary cross entropy error to generate a loss. The outputs from using this loss function were:
 <p align="center">
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/UpdatedArchitecture_BCE_500.png?raw=true">
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/UpdatedArchitecture_BSE_500_Loss.png?raw=true">
 </p>
 
-Paper desribing using least squared loss for optimizting GANs isntead of BCE: [https://arxiv.org/pdf/1611.04076.pdf](https://arxiv.org/pdf/1611.04076.pdf)
+The reults look reasonable, however there are a significant number of similar images. One of the issues with GANs is the generator can learn a template which reliably trick the discriminator and the generator can get stuck generating the same images over and over again. This is not desirable, a good generator should create a variety of images. I looked into this issue and discovered changing the loss function might fix this issue from the following paper: [https://arxiv.org/pdf/1611.04076.pdf](https://arxiv.org/pdf/1611.04076.pdf)
 
 ## Results
 
