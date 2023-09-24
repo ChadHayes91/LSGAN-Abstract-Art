@@ -59,7 +59,7 @@ After iterating on my network architecture and changing my loss function, my gen
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Final_LSGAN_500_Gen_1.png?raw=true">
 </p>
 
-The plot of losses over epochs looks more reasonable too, instead of the generator having an increasing loss while the discriminator continually gets better, there seems more of a tradeoff between the generator's and discriminator's loss which is expected.
+The plot of losses over epochs looks more reasonable too, instead of the generator having an increasing loss over time, the generator's loss seems to be stable and closer to the discriminator's loss.
 <p align="center">
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Final_LSGAN_Loss.png?raw=true">
 </p>
