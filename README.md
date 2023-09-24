@@ -33,7 +33,7 @@ GANs are typically tricky to train, there were a few difficulties I encoutered b
 The first issue I encountered was with my chosen architecture. I used some linear layers before convolutional layers for both the discriminator and generator which made my results significantly worse. My generator's loss was continually increasing over epochs, and the outputs from the generator did not look like my input images. Here is the plot of my losses and the output after 300 epochs:
 <p align="center">
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Linear_BCE_300_Loss.png?raw=true">
-  <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Linear_BCE_300.png?raw=true"
+  <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Linear_BCE_300.png?raw=true">
 </p>
 
 
