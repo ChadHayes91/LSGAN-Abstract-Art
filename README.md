@@ -1,7 +1,8 @@
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
+Link to Code (Jupyter Notebook):
+
 ## Introduction & Data
-Link to Code:
 
 This project takes image classification using Convolutional Neural Networks (CNNs) explored in previous projects and expands upon that by creating a generative model - more specifically a Generative Adversarial Network (GAN) to create images. I found a dataset on Kaggle which webscraped around 3,000 abstract art images from WikiArt (https://www.wikiart.org/). 
 
