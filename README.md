@@ -30,6 +30,13 @@ Similarly, I used the Adam optimizer with a learning rate of 0.0002 and betas=(0
 ## Difficulties & Model Improvements
 GANs are typically tricky to train, there were a few difficulties I encoutered before I found reasonable results.
 
+The first issue I encountered was with my chosen architecture. I used some linear layers before convolutional layers for both the discriminator and generator which made my results significantly worse. My generator's loss was continually increasing over epochs, and the outputs from the generator did not look like my input images. Here is the plot of my losses and the output after 300 epochs:
+<p align="center">
+  <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Linear_BCE_300_Loss.png?raw=true">
+  <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Linear_BCE_300.png?raw=true"
+</p>
+
+
 Paper desribing using least squared loss for optimizting GANs isntead of BCE: https://arxiv.org/pdf/1611.04076.pdf
 
 ## Results
