@@ -42,7 +42,7 @@ The first issue I encountered was with my chosen architecture. I used some linea
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Linear_BCE_300.png?raw=true">
 </p>
 
-I iterated on my discrminator and generator architecture until I eventually found the architecture mentioned in the previous section which provided decent results. 
+I iterated on my discriminator and generator architecture until I eventually found the architecture mentioned in the previous section which provided decent results. 
 
 My next issue is with the loss function. I originally used Pytorch's binary cross entropy error to generate a loss. The outputs from using this loss function were:
 <p align="center">
@@ -50,7 +50,7 @@ My next issue is with the loss function. I originally used Pytorch's binary cros
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/UpdatedArchitecture_BSE_500_Loss.png?raw=true">
 </p>
 
-The reults look reasonable, however there are a significant number of similar images. One of the issues with GANs is the generator can learn a template which reliably trick the discriminator and the generator can get stuck generating the same images over and over again. This is not desirable, a good generator should create a variety of images. I looked into this issue and discovered changing the loss function might fix this issue from the following paper: [https://arxiv.org/pdf/1611.04076.pdf](https://arxiv.org/pdf/1611.04076.pdf).
+The results look reasonable, however there are a significant number of similar images. One of the issues with GANs is the generator can learn a template which reliably trick the discriminator and the generator can get stuck generating the same images over and over again. This is not desirable, a good generator should create a variety of images. I investigated this issue and discovered that changing the loss function might resolve this problem. The following paper suggested using least squares error as an alternative loss function: [https://arxiv.org/pdf/1611.04076.pdf](https://arxiv.org/pdf/1611.04076.pdf).
 
 ## Results
 
@@ -59,7 +59,7 @@ After iterating on my network architecture and changing my loss function, my gen
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Final_LSGAN_500_Gen_1.png?raw=true">
 </p>
 
-The plot of losses over epochs looks more reasonable too, instead of the generator having an increasing loss over time, the generator's loss seems to be stable and closer to the discriminator's loss.
+The plot of losses over epochs looks more reasonable as well. Rather than the generator experiencing increasing loss over time, the generator's loss seems to be stable and closer to the discriminator's loss.
 <p align="center">
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Final_LSGAN_Loss.png?raw=true">
 </p>
