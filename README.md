@@ -13,12 +13,8 @@ GANs train two neural networks simultaneously, a generator network which takes a
 
 Here are some examples from this dataset (these are the types of images the generator is trying to create):
 <p align="center">
-  <div style="margin-right: 5px;">
-    <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Input_Examples_1.png?raw=true">
-  </div>
-  <div style="margin-left: 5px;">
-    <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Input_Examples_2.png?raw=true">
-  </div>
+    <img style="margin-right: 20px;" width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Input_Examples_1.png?raw=true">
+    <img style="margin-left: 20px;" width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Input_Examples_2.png?raw=true">
 </p>
 
 My chosen generator and discriminator architectures were inspired from this InfoGAN paper which explores different architectures for a variety of different datasets: [https://arxiv.org/pdf/1606.03657.pdf](https://arxiv.org/pdf/1606.03657.pdf) (see pages 12 and 13).
