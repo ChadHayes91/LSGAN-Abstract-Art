@@ -1,6 +1,6 @@
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 
-Link to Code (Jupyter Notebook):
+Link to Code (Jupyter Notebook): [https://github.com/ChadHayes91/LSGAN-Abstract-Art-Code](https://github.com/ChadHayes91/LSGAN-Abstract-Art-Code)
 
 ## Introduction & Data
 
