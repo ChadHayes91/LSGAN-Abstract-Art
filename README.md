@@ -11,7 +11,11 @@ Link to Dataset: https://www.kaggle.com/datasets/bryanb/abstract-art-gallery
 ## Methodology & Neural Net Architecture
 GANs train two neural networks simultaneously, a generator network which takes as input a noise vector and creates an image, and a discriminator network which takes as input an image and determines if it is a fake image created by the generator or a real image from original dataset. For each batch of data, the discriminator analyzes both fake and real abstract art images and updates its weights from the loss via misclassification, and the generator updates its weights based on the loss from fake images the discriminator correctly classified as fake. This is similar to the minimax algorithm in classical AI where two players are paired off against each other.
 
-
+<p align="center">
+  <img width="200" height="200" src="https://github.com/ChadHayes91/LSGAN-Abstract_art/blob/master/Images/Tet_Left.PNG?raw=true">
+  <img width="200" height="200" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Tet_Right.PNG?raw=true">
+  <img width="200" height="200" src="https://github.com/ChadHayes91/Pathfinding_TetRobot/blob/master/Images/Tet_Oppo.PNG?raw=true">
+</p>
 
 ## Difficulties & Model Improvements
 GANs are typically tricky to train, there were a few difficulties I encoutered before I found reasonable results.
