@@ -44,15 +44,15 @@ The first issue I encountered was with my chosen architecture. I used some linea
 
 I iterated on my discriminator and generator architecture until I eventually found the architecture mentioned in the previous section which provided decent results. 
 
-My next issue is with the loss function. I originally used PyTorch's binary cross entropy error to generate a loss (torch.nn.BCEWithLogitsLoss). The outputs from using this loss function were:
+My next issue is with the loss function. I originally used PyTorch's binary cross-entropy error to generate a loss (torch.nn.BCEWithLogitsLoss). The outputs from using this loss function were:
 <p align="center">
   <img style="margin-right: 15px;" width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/UpdatedArchitecture_BCE_500.png?raw=true">
   <img style="margin-left: 15px;" width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/UpdatedArchitecture_BSE_500_Loss.png?raw=true">
 </p>
 
-The results look reasonable, however there are a significant number of similar images. One of the issues with GANs is the generator can learn a template which reliably trick the discriminator so the generator can get stuck generating the same images over and over again. This is not desirable, a good generator should create a variety of images. I investigated this issue and discovered that changing the loss function resolved this problem. I implemented mean squared loss instead of binary cross entropy loss based on the results from this paper: [https://arxiv.org/pdf/1611.04076.pdf](https://arxiv.org/pdf/1611.04076.pdf). This paper explains that using a sigmoid based binary cross-entropy (which I was using previously) can experience a vanishing gradient when the fake samples are on the correct side of the decision boundary (even if they are still far from real data). This means that the generator might not improve from generated images that fool the discriminator despite them not being quality images. Since this sounds similar to my problem, I changed my loss function from BCE to PyTorch's MSE and quality of the generated images significantly improved.
+The results look reasonable, however there are a significant number of similar images. One of the issues with GANs is the generator can learn a template which reliably trick the discriminator so the generator can get stuck generating the same images over and over again. This is not desirable, a good generator should create a variety of images. I investigated this issue and discovered that changing the loss function resolved this problem. I implemented mean squared loss instead of binary cross-entropy loss based on the results from this paper: [https://arxiv.org/pdf/1611.04076.pdf](https://arxiv.org/pdf/1611.04076.pdf). This paper explains that using a sigmoid based binary cross-entropy (which I was using previously) can experience a vanishing gradient when the fake samples are on the correct side of the decision boundary (even if they are still far from real data). This means that the generator might not improve from generated images that fool the discriminator despite them not being quality images. Since this sounds similar to my problem, I changed my loss function from BCE to PyTorch's MSE and quality of the generated images significantly improved.
 
-## Results & Improvements
+## Results & Future Works
 
 After iterating on my network architecture and changing my loss function, my generator is able to create images like the following given an input vector of random noise:
 <p align="center">
@@ -64,3 +64,5 @@ The plot of losses over epochs looks more reasonable as well. Rather than the ge
 <p align="center">
   <img width="500" height="500" src="https://github.com/ChadHayes91/LSGAN-Abstract-Art/blob/main/Images/Final_LSGAN_Loss.png?raw=true">
 </p>
+
+In the future, I hope to also implement a diffusion-based model to compared the results of diffusion versus using a GAN. In the short-run, easy improvements to this project would be iterating on hyperparmeters (batch size, optimizer parameters) and further altering model architectures (making both models deeper, exploring more loss functions, changing activation functions, etc.).
